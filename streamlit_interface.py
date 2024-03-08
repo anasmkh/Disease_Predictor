@@ -163,11 +163,12 @@ for symptom in symptoms:
 if st.button("Predict Disease"):
   if selected_symptoms:
     prediction = predict_disease(selected_symptoms)
-    prediction = json.loads(prediction)
-    pre = str(prediction)
+    pre = prediction.get('disease_name')
+    prop = prediction.get('probability')
 
-    st.title(pre)
-    # st.success(f"Predicted Disease: {str(pre['disease_name'])}")
+    st.toast(f'You Approximately have {pre} with probability {property}' )
+    st.warning(f'You Approximately have {pre} with probability {int(prop*100)} % you better ask a doctor')
+
 
 
 

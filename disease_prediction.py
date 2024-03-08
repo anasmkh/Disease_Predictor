@@ -32,7 +32,7 @@ def get_result(arr):
     index = np.argmax(prediction)
 
     disease_name = names[index]
-    probability = np.max(new_model.predict(arr))
+    probability =float( np.max(new_model.predict(arr)))
 
     return {"disease_name": disease_name, "probability": probability}
 
@@ -45,11 +45,11 @@ def predict_disease():
         return jsonify({'message': 'Missing required field: "symptoms"'}), 400
 
     symptoms = data['symptoms']
+
     result = get_result(symptoms)
-    print(result)
-    r = json.dumps(str(result))
-    print(r)
-    return jsonify(r)
+
+    return jsonify(result)
+
 
 
 if __name__ == '__main__':
