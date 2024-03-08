@@ -166,7 +166,7 @@ if st.button("Predict Disease"):
     pre = prediction.get('disease_name')
     prop = prediction.get('probability')
 
-    st.toast(f'You Approximately have {pre} with probability {property}' )
+    st.toast(f'You Approximately have {pre} with probability {int(prop*100)} % you better ask a doctor')
     st.warning(f'You Approximately have {pre} with probability {int(prop*100)} % you better ask a doctor')
 
 
