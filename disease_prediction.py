@@ -21,10 +21,6 @@ def get_result(arr):
         'Peptic ulcer diseae', 'Pneumonia', 'Psoriasis', 'Tuberculosis',
         'Typhoid', 'Urinary tract infection', 'Varicose veins', 'hepatitis A'
     ]
-    # if np.any(arr):
-    #     arr = arr.reshape(1, 132)
-
-
     arr = np.array(arr).reshape(1, 132)
     new_model = tf.keras.models.load_model('disease_prediction.h5')
 
@@ -32,7 +28,7 @@ def get_result(arr):
     index = np.argmax(prediction)
 
     disease_name = names[index]
-    probability =float( np.max(new_model.predict(arr)))
+    probability =float(np.max(new_model.predict(arr)))
 
     return {"disease_name": disease_name, "probability": probability}
 
@@ -47,7 +43,7 @@ def predict_disease():
     symptoms = data['symptoms']
 
     result = get_result(symptoms)
-
+    print(result)
     return jsonify(result)
 
 

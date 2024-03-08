@@ -10,6 +10,7 @@ def predict_disease(symptoms):
   if response.status_code == 200:
     return response.json()
   else:
+
     return {"message": "Error: " + response.text}
 
 st.title("Are you suffering from any of those symptoms?")
